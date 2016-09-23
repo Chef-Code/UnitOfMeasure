@@ -1,0 +1,5 @@
+D:\_Personal\Websites\UnitOfMeasure\UnitOfMeasure\bin\Debug\UnitOfMeasure.dll
+D:\_Personal\Websites\UnitOfMeasure\UnitOfMeasure\bin\Debug\UnitOfMeasure.pdb
+D:\_Personal\Websites\UnitOfMeasure\UnitOfMeasure\obj\Debug\UnitOfMeasure.dll
+D:\_Personal\Websites\UnitOfMeasure\UnitOfMeasure\obj\Debug\UnitOfMeasure.pdb
+D:\_Personal\Websites\UnitOfMeasure\UnitOfMeasure\obj\Debug\UnitOfMeasure.csprojResolveAssemblyReference.cache

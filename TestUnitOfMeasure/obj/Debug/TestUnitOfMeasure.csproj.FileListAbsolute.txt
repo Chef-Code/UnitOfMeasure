@@ -1,0 +1,8 @@
+D:\_Personal\Websites\UnitOfMeasure\TestUnitOfMeasure\bin\Debug\TestUnitOfMeasure.exe.config
+D:\_Personal\Websites\UnitOfMeasure\TestUnitOfMeasure\bin\Debug\TestUnitOfMeasure.exe
+D:\_Personal\Websites\UnitOfMeasure\TestUnitOfMeasure\bin\Debug\TestUnitOfMeasure.pdb
+D:\_Personal\Websites\UnitOfMeasure\TestUnitOfMeasure\bin\Debug\UnitOfMeasure.dll
+D:\_Personal\Websites\UnitOfMeasure\TestUnitOfMeasure\bin\Debug\UnitOfMeasure.pdb
+D:\_Personal\Websites\UnitOfMeasure\TestUnitOfMeasure\obj\Debug\TestUnitOfMeasure.csprojResolveAssemblyReference.cache
+D:\_Personal\Websites\UnitOfMeasure\TestUnitOfMeasure\obj\Debug\TestUnitOfMeasure.exe
+D:\_Personal\Websites\UnitOfMeasure\TestUnitOfMeasure\obj\Debug\TestUnitOfMeasure.pdb
