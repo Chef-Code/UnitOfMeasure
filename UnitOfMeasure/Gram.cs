@@ -6,19 +6,24 @@ using System.Threading.Tasks;
 
 namespace UnitOfMeasure
 {
-    public class FluidOunce : Unit
+    public class Gram : Unit //based off teaspoon, remove this comment once updated
     {
         private Fraction[] _CF = new Fraction[]
         {
-            new Fraction(6,1), new Fraction(2,1), new Fraction(1,1), new Fraction(1,8), new Fraction(1,16), new Fraction(1,32), new Fraction(1,64), new Fraction(1,128)
+            new Fraction(1,1), new Fraction(1,2), new Fraction(1,6), new Fraction(1,48), new Fraction(1,96), new Fraction(1,192), new Fraction(1,384), new Fraction(1,778)
         };
         private ConvertToUnit[] _convertToUnits = new ConvertToUnit[] { };
-        public FluidOunce()
+        public Gram()
         {
-            this.BaseVolume = new Fraction(1,1);
-            this.Index = 2;
+            this.BaseVolume = new Fraction(1, 6);
+            this.Index = 0;
         }
-        public override Fraction[] ConversionFactors  
+        public Gram(double quantity) 
+        {
+            this.BaseVolume = new Fraction(1, 6);
+            this.Index = 0;
+        }
+        public override Fraction[] ConversionFactors
         {
             get { return _CF; }
         }

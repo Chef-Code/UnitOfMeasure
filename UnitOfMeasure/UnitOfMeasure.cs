@@ -27,15 +27,8 @@ namespace UnitOfMeasure
         public UnitOfMeasure(Unit Unit)
         {
             this.Unit = Unit;
-            this.Quantity = 1;
+            this.Quantity = Unit.Quantity;
             this.Volume = Unit.BaseVolume;
-            this.Weight = Weight;
-        }
-        public UnitOfMeasure(Unit Unit, double Quantity)
-        {
-            this.Unit = Unit;
-            this.Quantity = Quantity;
-            this.Volume = this.Quantity * Unit.BaseVolume;
             this.Weight = Weight;
         }
         #endregion
@@ -181,7 +174,9 @@ namespace UnitOfMeasure
 
             var wantedUnits = Quantity / (Fraction)Get_CF(unitWant, index);
 
-            UnitOfMeasure convertedUnit = new UnitOfMeasure(unitWant.Unit, wantedUnits);
+            UnitOfMeasure convertedUnit = new UnitOfMeasure(unitWant.Unit);
+
+            convertedUnit.Quantity = wantedUnits;  //this is broke
 
             return convertedUnit;
         }

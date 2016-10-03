@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace UnitOfMeasure
 {
-    public class FluidOunce : Unit
+    public class Pound : Unit        //TODO:  FIX THIS
     {
         private Fraction[] _CF = new Fraction[]
         {
-            new Fraction(6,1), new Fraction(2,1), new Fraction(1,1), new Fraction(1,8), new Fraction(1,16), new Fraction(1,32), new Fraction(1,64), new Fraction(1,128)
+            new Fraction(16,1), new Fraction(1,1) 
         };
         private ConvertToUnit[] _convertToUnits = new ConvertToUnit[] { };
-        public FluidOunce()
+        public Pound()
         {
-            this.BaseVolume = new Fraction(1,1);
-            this.Index = 2;
+            this.BaseVolume = new Fraction(16, 1);  // <------Implement BaseWeight  this will need to be where I start... BaseVolume will need to be "abstracted out" along with BaseWeight
+            this.Index = 1;
         }
-        public override Fraction[] ConversionFactors  
+        public override Fraction[] ConversionFactors
         {
             get { return _CF; }
         }

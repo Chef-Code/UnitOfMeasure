@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,13 +15,15 @@ namespace TestUnitOfMeasure
             //TestConvert();
             //TestUnit_CF();
             //TestFraction_ToDouble();
-            //Test_Indexer();
-            //Test_ConvertTo();
-            Test_GetIndexByFractionComparison();
+            Test_ConvertTo();
+            //Test_Cups_ConvertToUnits();
+            //Test_StringIndexer_Cups();
         }
         static void TestConvert()
         {
-            var from = new UnitOfMeasure.UnitOfMeasure(new Cup(),2.3);
+            var cup = new Cup(1);
+
+            var from = new UnitOfMeasure.UnitOfMeasure(cup);
             var to = new Teaspoon();
 
             var tos = from.ConvertTo(new UnitOfMeasure.UnitOfMeasure(to));
@@ -53,45 +56,45 @@ namespace TestUnitOfMeasure
             Console.ReadLine();
         }
 
-        static void Test_Indexer()
-        {
-            var cup = new Cup();
-            var i = cup.BaseVolume;
-            var index = cup[i];
-
-            Console.WriteLine(index.ToString());
-            Console.ReadLine();
-        }
-
         static void Test_ConvertTo()
         {
-            var gallon = new Gallon();
+            var from = new Cup();
 
-            var cups = gallon.ConvertTo(new Cup());
+            var becomes = from.ConvertTo(new CubicCentimeter());
 
-            Console.WriteLine(cups.Quantity.ToString() + " : " + cups.Volume.ToString());
+            Console.WriteLine(becomes.Quantity.ToString() + " : " + becomes.Volume.ToString());
             Console.ReadLine();
         }
 
-        static void Test_GetIndexByFractionComparison()
+        static void Test_Cups_ConvertToUnits()
         {
-            //Use Case #1
-            var from = new HalfGallon();
-            var to = new Gallon(); 
+            var cups = new Cup(100);
 
-            var useCase1 = from[to.BaseVolume];
-            var type1 = from[useCase1];
+            var ctus = cups.ConvertToUnits;
 
+            var cc = ctus.FirstOrDefault(ctu => ctu.Become == "CubicCentimeter");  // breaking the Fraction Class
+            var i = 0;
+            var str = new string[3];
+            foreach(var c in ctus)
+            {
+                var frac = c.EquivalentRatio;
 
-            //Use Case #2
-            var half = new Fraction(1, 2);
+                var num = frac.Numerator;
+                var dem = frac.Denominator;
 
-            var useCase2 = from[half];
+                str[i] += frac.ToString();
+                i++;
+            }
 
-            var type2 = from[useCase2];
+            Console.WriteLine(str[1] + " " + str[1] + " " + str[1] + " ");
+        }
+        static void Test_StringIndexer_Cups()
+        {
+            var cups = new Cup(2);
 
-            Console.WriteLine("Use Case #1; index: " + useCase1.ToString() + " is a: " + type1.ToString() + "\n\n" +
-                "Use Case #2; index: " + useCase2.ToString() + " is a: " + type2.ToString());
+            var gram = cups["Gram"];
+
+            Console.WriteLine(gram.EquivalentRatio.ToString());
             Console.ReadLine();
         }
     }

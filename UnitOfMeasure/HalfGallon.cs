@@ -12,6 +12,7 @@ namespace UnitOfMeasure
         {
             new Fraction(384,1), new Fraction(128,1), new Fraction(64,1), new Fraction(8,1), new Fraction(4,1), new Fraction(2,1), new Fraction(1,1), new Fraction(1,2)
         };
+        private ConvertToUnit[] _convertToUnits = new ConvertToUnit[] { };
         public HalfGallon()
         {
             this.BaseVolume = new Fraction(64,1);
@@ -26,6 +27,20 @@ namespace UnitOfMeasure
             get
             {
                 return _CF[index];
+            }
+        }
+        public override ConvertToUnit[] ConvertToUnits
+        {
+            get
+            {
+                return _convertToUnits;
+            }
+        }
+        public override ConvertToUnit this[string become]
+        {
+            get
+            {
+                return _convertToUnits.SingleOrDefault(ctu => ctu.Become == become);
             }
         }
     }

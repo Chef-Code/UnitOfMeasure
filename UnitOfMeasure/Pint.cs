@@ -12,6 +12,7 @@ namespace UnitOfMeasure
         {
             new Fraction(96,1), new Fraction(32,1), new Fraction(16,1), new Fraction(2,1), new Fraction(1,1), new Fraction(1,2), new Fraction(1,4), new Fraction(1,8)
         };
+        private ConvertToUnit[] _convertToUnits = new ConvertToUnit[] { };
         public Pint()
         {
             this.BaseVolume = new Fraction(16,1);
@@ -26,6 +27,20 @@ namespace UnitOfMeasure
             get
             {
                 return _CF[index];
+            }
+        }
+        public override ConvertToUnit[] ConvertToUnits
+        {
+            get
+            {
+                return _convertToUnits;
+            }
+        }
+        public override ConvertToUnit this[string become]
+        {
+            get
+            {
+                return _convertToUnits.SingleOrDefault(ctu => ctu.Become == become);
             }
         }
     }

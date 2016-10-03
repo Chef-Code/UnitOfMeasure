@@ -12,6 +12,7 @@ namespace UnitOfMeasure
         {
             new Fraction(3,1), new Fraction(1,1), new Fraction(1,2), new Fraction(1,16), new Fraction(1,32), new Fraction(1,64), new Fraction(1,128), new Fraction(1,256)
         };
+        private ConvertToUnit[] _convertToUnits = new ConvertToUnit[] { };
         public Tablespoon()
         {
             this.BaseVolume = new Fraction(1,2);
@@ -26,6 +27,20 @@ namespace UnitOfMeasure
             get
             {
                 return _CF[index];
+            }
+        }
+        public override ConvertToUnit[] ConvertToUnits
+        {
+            get
+            {
+                return _convertToUnits;
+            }
+        }
+        public override ConvertToUnit this[string become]
+        {
+            get
+            {
+                return _convertToUnits.SingleOrDefault(ctu => ctu.Become == become);
             }
         }
     }

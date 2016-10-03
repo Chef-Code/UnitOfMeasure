@@ -40,12 +40,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllUnits.cs" />
+    <Compile Include="ConvertToUnit.cs" />
+    <Compile Include="CubicCentimeter.cs" />
+    <Compile Include="CubicFoot.cs" />
+    <Compile Include="CubicInch.cs" />
+    <Compile Include="CubicMeter.cs" />
     <Compile Include="Cup.cs" />
     <Compile Include="FluidOunce.cs" />
     <Compile Include="Fraction.cs" />
     <Compile Include="Gallon.cs" />
+    <Compile Include="Gram.cs" />
     <Compile Include="HalfGallon.cs" />
+    <Compile Include="KiloGram.cs" />
+    <Compile Include="Liter.cs" />
+    <Compile Include="MilliGram.cs" />
+    <Compile Include="MilliLiter.cs" />
+    <Compile Include="Ounce.cs" />
     <Compile Include="Pint.cs" />
+    <Compile Include="Pound.cs" />
     <Compile Include="Quart.cs" />
     <Compile Include="Tablespoon.cs" />
     <Compile Include="Teaspoon.cs" />

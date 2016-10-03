@@ -8,41 +8,34 @@ namespace UnitOfMeasure
 {
     public abstract class Unit
     {
-        public Unit() { }
+        public Unit(){ }
         public int UnitID { get; set; }
         public string Name
         {
             get { return GetType().Name; }
         }
         public int Index { get; set; }
-        public Fraction BaseVolume { get; set; }
+        public double Quantity { get; set; }
+        public Fraction BaseVolume { get; set; }  //This is Equivalent to How many FluidOunces the Unit Contains
         public abstract Fraction[] ConversionFactors { get;}
         public abstract Fraction this[int index] {get;}
-
+        public abstract ConvertToUnit this[string become]
+        {                
+                get;   //return _convertToUnits.SingleOrDefault(ctu => ctu.Become == become);         
+        }
+        public abstract ConvertToUnit[] ConvertToUnits { get; }  
         public UnitOfMeasure ConvertTo(Unit u)
         {
-            var from_cf = ConversionFactors;
+            var become = u.Name.ToString();
 
-            var volume = (Fraction)from_cf[u.Index];
+            var ctu = this[become];
 
-            return new UnitOfMeasure(u, volume);
-        }
+            var eq = ctu.EquivalentRatio;
+            var newQuantity = this.Quantity * eq;
 
-        private int GetIndexByFractionComparison(Fraction fraction)
-        {
-            for (int i = 0; i < ConversionFactors.Length; i++)
-            {
-                if (ConversionFactors[i] == fraction)
-                    return i;
-            }
-            throw new System.ArgumentOutOfRangeException(fraction.ToString(), fraction.ToString() + " not associated with " + this.GetType().Name + " ConversionFactor List");
-        }
-        public int this[Fraction fraction]
-        {
-            get
-            {
-                return (GetIndexByFractionComparison(fraction));
-            }
+            u.Quantity = newQuantity;
+
+            return new UnitOfMeasure(u);
         }
     }
 }
