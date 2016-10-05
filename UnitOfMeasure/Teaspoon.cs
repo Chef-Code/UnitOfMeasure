@@ -12,7 +12,28 @@ namespace UnitOfMeasure
         {
             new Fraction(1,1), new Fraction(1,2), new Fraction(1,6), new Fraction(1,48), new Fraction(1,96), new Fraction(1,192), new Fraction(1,384), new Fraction(1,778)
         };
-        private ConvertToUnit[] _convertToUnits = new ConvertToUnit[] { };
+        private ConvertToUnit[] _convertToUnits = new ConvertToUnit[]
+        {
+            new ConvertToUnit("Teaspoon",100000000000d, "CubicCentimeter",492892159375d),
+            new ConvertToUnit("Teaspoon",100000000000000000000d, "CubicFoot",17406322333045376d),
+            new ConvertToUnit("Teaspoon",10000000000000000d, "CubicInch",3007812499150241d),
+            new ConvertToUnit("Teaspoon",100000000000000000d, "CubicMeter",492892159375d),
+            new ConvertToUnit("Teaspoon",1000000000000000000d, "Cup",20833333333333336d),
+            new ConvertToUnit("Teaspoon",100000000000000000d, "FluidOunce",16666666666666668d),
+            new ConvertToUnit("Teaspoon",10000000000000000000d, "Gallon",13020833333333334d),
+            new ConvertToUnit("Teaspoon",100000000000d, "Gram",492892159375d),
+            new ConvertToUnit("Teaspoon",10000000000000000000d, "HalfGallon",6510416666666667d),
+            new ConvertToUnit("Teaspoon",100000000000000d, "KiloGram",492892159375d),
+            new ConvertToUnit("Teaspoon",100000000000000d, "Liter",492892159375d),
+            new ConvertToUnit("Teaspoon",100000000d, "MilliGram",492892159375d),
+            new ConvertToUnit("Teaspoon",100000000000d, "MilliLiter",492892159375d),
+            new ConvertToUnit("Teaspoon",100000000000000000d, "Ounce",17386259275040274d),
+            new ConvertToUnit("Teaspoon",1000000000000000000d, "Pint",10416666666666668d),
+            new ConvertToUnit("Teaspoon",1000000000000000000d, "Pound",10866412046900172d),
+            new ConvertToUnit("Teaspoon",1000000000000000000d, "Quart",5208333333333334d),
+            new ConvertToUnit("Teaspoon",3d, "Tablespoon",1d),
+            new ConvertToUnit("Teaspoon",1d, "Teaspoon",1d)
+        };
         public Teaspoon()
         {
             this.BaseVolume = new Fraction(1, 6);

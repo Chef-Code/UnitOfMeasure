@@ -12,7 +12,28 @@ namespace UnitOfMeasure
         {
             new Fraction(1,1), new Fraction(1,2), new Fraction(1,6), new Fraction(1,48), new Fraction(1,96), new Fraction(1,192), new Fraction(1,384), new Fraction(1,778)
         };
-        private ConvertToUnit[] _convertToUnits = new ConvertToUnit[] { };
+        private ConvertToUnit[] _convertToUnits = new ConvertToUnit[] 
+        {
+            new ConvertToUnit("CubicFoot",10000d, "CubicCentimeter",283168466d),
+            new ConvertToUnit("CubicFoot",1d, "CubicFoot",1d),
+            new ConvertToUnit("CubicFoot",1d, "CubicInch",1728d),
+            new ConvertToUnit("CubicFoot",10000000000d, "CubicMeter",283168466d),
+            new ConvertToUnit("CubicFoot",100000000000000d, "Cup",11968831172212572d),
+            new ConvertToUnit("CubicFoot",10000000000000d, "FluidOunce",9575064937770058d),
+            new ConvertToUnit("CubicFoot",1000000000000000d, "Gallon",7480519482632857d),
+            new ConvertToUnit("CubicFoot",1d, "Gram",1d),
+            new ConvertToUnit("CubicFoot",1000000000000000d, "HalfGallon",14961038965265714d),
+            new ConvertToUnit("CubicFoot",10000000d, "KiloGram",283168466d),
+            new ConvertToUnit("CubicFoot",10000000d, "Liter",283168466d),
+            new ConvertToUnit("CubicFoot",10d, "MilliGram",283168466d),
+            new ConvertToUnit("CubicFoot",10000d, "MilliLiter",283168466d),
+            new ConvertToUnit("CubicFoot",10000000000000d, "Ounce",9988473695005054d),
+            new ConvertToUnit("CubicFoot",100000000000000d, "Pint",5984415586106286d),
+            new ConvertToUnit("CubicFoot",100000000000000d, "Pound",6242796059378159d),
+            new ConvertToUnit("CubicFoot",1000000000000000d, "Quart",29922077930531428d),
+            new ConvertToUnit("CubicFoot",10000000000000d, "Tablespoon",19150129875540116d),
+            new ConvertToUnit("CubicFoot",1000000000000d, "Teaspoon",5745038962662034d)
+        };
         public CubicFoot()
         {
             this.BaseVolume = new Fraction(1, 6);

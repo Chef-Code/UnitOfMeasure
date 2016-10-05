@@ -12,7 +12,28 @@ namespace UnitOfMeasure
         {
             new Fraction(3,1), new Fraction(1,1), new Fraction(1,2), new Fraction(1,16), new Fraction(1,32), new Fraction(1,64), new Fraction(1,128), new Fraction(1,256)
         };
-        private ConvertToUnit[] _convertToUnits = new ConvertToUnit[] { };
+        private ConvertToUnit[] _convertToUnits = new ConvertToUnit[] 
+        {
+            new ConvertToUnit("Tablespoon",100000000000d, "CubicCentimeter",1478676478125d),
+            new ConvertToUnit("Tablespoon",10000000000000000000d, "CubicFoot",5221896699913612d),
+            new ConvertToUnit("Tablespoon",10000000000000000d, "CubicInch",9023437497450722d),
+            new ConvertToUnit("Tablespoon",100000000000000000d, "CubicMeter",1478676478125d),
+            new ConvertToUnit("Tablespoon",10000d, "Cup",625d),
+            new ConvertToUnit("Tablespoon",10d, "FluidOunce",5d),
+            new ConvertToUnit("Tablespoon",100000000d, "Gallon",390625d),
+            new ConvertToUnit("Tablespoon",100000000000d, "Gram",1478676478125d),
+            new ConvertToUnit("Tablespoon",1000000000d, "HalfGallon",1953125d),
+            new ConvertToUnit("Tablespoon",100000000000000d, "KiloGram",1478676478125d),
+            new ConvertToUnit("Tablespoon",100000000000000d, "Liter",1478676478125d),
+            new ConvertToUnit("Tablespoon",100000000d, "MilliGram",1478676478125d),
+            new ConvertToUnit("Tablespoon",100000000000d, "MilliLiter",1478676478125d),
+            new ConvertToUnit("Tablespoon",10000000000000000d, "Ounce",5215877782512082d),
+            new ConvertToUnit("Tablespoon",100000d, "Pint",3125d),
+            new ConvertToUnit("Tablespoon",100000000000000000d, "Pound",3259923614070051d),
+            new ConvertToUnit("Tablespoon",1000000d, "Quart",15625d),
+            new ConvertToUnit("Tablespoon",1d, "Tablespoon",1d),
+            new ConvertToUnit("Tablespoon",1d, "Teaspoon",3d)
+        };
         public Tablespoon()
         {
             this.BaseVolume = new Fraction(1,2);
