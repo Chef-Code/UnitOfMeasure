@@ -63,15 +63,5 @@ namespace UnitOfMeasure
                 return _convertToUnits.SingleOrDefault(ctu => ctu.Become == become);
             }
         }
-        public int this[ConvertToUnit convertToUnit]
-        {
-            get
-            {
-               int[] ints = Enumerable.Range(0, ConvertToUnits.Length)
-                          .Where(index => ConvertToUnits[index].Become.Contains(convertToUnit.Become)).ToArray();
-                return ints[0];
-                          
-            }
-        }
     }
 }
