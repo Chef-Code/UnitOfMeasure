@@ -9,18 +9,17 @@ namespace UnitOfMeasure
     public class UnitOfMeasure
     {
         //schema:         "unit" + "_CF" = { Teaspoon, Tablespoon, FluidOunce, Cup, Pint, Quart, HalfGallon, Gallon };
-        private Fraction[] teaspoon_CF = new Teaspoon().ConversionFactors;
-        private Fraction[] tablespoon_CF = new Tablespoon().ConversionFactors;
-        private Fraction[] fluidOunce_CF = new FluidOunce().ConversionFactors;
-        private Fraction[] cup_CF = new Cup().ConversionFactors;
-        private Fraction[] pint_CF = new Pint().ConversionFactors;
-        private Fraction[] quart_CF = new Quart().ConversionFactors;
-        private Fraction[] halfGallon_CF = new HalfGallon().ConversionFactors;
-        private Fraction[] gallon_CF = new Gallon().ConversionFactors;
+        private ConvertToUnit[] teaspoon_CF = new Teaspoon().ConvertToUnits;
+        private ConvertToUnit[] tablespoon_CF = new Tablespoon().ConvertToUnits;
+        private ConvertToUnit[] fluidOunce_CF = new FluidOunce().ConvertToUnits;  //TODO: ADD THE REST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        private ConvertToUnit[] cup_CF = new Cup().ConvertToUnits;
+        private ConvertToUnit[] pint_CF = new Pint().ConvertToUnits;
+        private ConvertToUnit[] quart_CF = new Quart().ConvertToUnits;
+        private ConvertToUnit[] halfGallon_CF = new HalfGallon().ConvertToUnits;
+        private ConvertToUnit[] gallon_CF = new Gallon().ConvertToUnits;
 
         private double _volume;
         private double _weight;
-        private int index;
 
         #region Constructors
         public UnitOfMeasure() { }
@@ -29,7 +28,7 @@ namespace UnitOfMeasure
             this.Unit = Unit;
             this.Quantity = Unit.Quantity;
             this.Volume = Unit.BaseVolume;
-            this.Weight = Weight;
+            this.Weight = Unit.BaseWeight;
         }
         #endregion
 
@@ -51,56 +50,56 @@ namespace UnitOfMeasure
 
         }
         public double Quantity { get; set; }
-        public Fraction[] Teaspoon_CF
+        public ConvertToUnit[] Teaspoon_CF
         {
             get
             {
                 return this.teaspoon_CF;
             }
         }
-        public Fraction[] Tablespoon_CF
+        public ConvertToUnit[] Tablespoon_CF
         {
             get
             {
                 return this.tablespoon_CF;
             }
         }
-        public Fraction[] FluidOunce_CF
+        public ConvertToUnit[] FluidOunce_CF
         {
             get
             {
                 return this.fluidOunce_CF;
             }
         }
-        public Fraction[] Cup_CF
+        public ConvertToUnit[] Cup_CF
         {
             get
             {
                 return this.cup_CF;
             }
         }
-        public Fraction[] Pint_CF
+        public ConvertToUnit[] Pint_CF
         {
             get
             {
                 return this.pint_CF;
             }
         }
-        public Fraction[] Quart_CF
+        public ConvertToUnit[] Quart_CF
         {
             get
             {
                 return this.quart_CF;
             }
         }
-        public Fraction[] HalfGallon_CF
+        public ConvertToUnit[] HalfGallon_CF
         {
             get
             {
                 return this.halfGallon_CF;
             }
         }
-        public Fraction[] Gallon_CF
+        public ConvertToUnit[] Gallon_CF
         {
             get
             {
@@ -140,39 +139,9 @@ namespace UnitOfMeasure
             return !uom1.Equals(uom2);
         }
 
-
-
         public UnitOfMeasure ConvertTo(UnitOfMeasure unitWant)
         {
-            switch (this.Unit.Name)
-            {
-                case "Gallon":
-                    index = 7;
-                    break;
-                case "HalfGallon":
-                    index = 6;
-                    break;
-                case "Quart":
-                    index = 5;
-                    break;
-                case "Pint":
-                    index = 4;
-                    break;
-                case "Cup":
-                    index = 3;
-                    break;
-                case "FluidOunce":
-                    index = 2;
-                    break;
-                case "Tablespoon":
-                    index = 1;
-                    break;
-                case "Teaspoon":
-                    index = 0;
-                    break;
-            }
-
-            var wantedUnits = Quantity / (Fraction)Get_CF(unitWant, index);
+            var wantedUnits = Quantity / (Fraction)Get_CF(unitWant);
 
             UnitOfMeasure convertedUnit = new UnitOfMeasure(unitWant.Unit);
 
@@ -181,13 +150,13 @@ namespace UnitOfMeasure
             return convertedUnit;
         }
 
-        public object Get_CF(UnitOfMeasure unitWant, int index)
+        private object Get_CF(UnitOfMeasure unitWant)
         {
             Type UofM = typeof(UnitOfMeasure);
             var prop = UofM.GetProperty(unitWant.Unit.Name + "_CF");
 
-            var cF = (Fraction[])prop.GetValue(this);
-            return cF[index];
+            var cF = (ConvertToUnit[])prop.GetValue(this);
+            return cF[unitWant.Unit.Index];
         }
         #endregion
     }

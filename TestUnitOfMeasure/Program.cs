@@ -15,9 +15,10 @@ namespace TestUnitOfMeasure
             //TestConvert();
             //TestUnit_CF();
             //TestFraction_ToDouble();
-            Test_ConvertTo();
+            //Test_ConvertTo();
             //Test_Cups_ConvertToUnits();
             //Test_StringIndexer_Cups();
+            _Cup_This_ConverToUnit_Indexer();
         }
         static void TestConvert()
         {
@@ -35,10 +36,10 @@ namespace TestUnitOfMeasure
         {
             var cup = new Cup();
 
-            var cf = cup.ConversionFactors; 
+            var cf = cup.ConvertToUnits; 
 
-            var d = cup[0].Denominator;
-            var n = cup[0].Numerator;
+            var d = cf[0].BecomeQuantity;
+            var n = cf[0].FromQuantity;
 
             double volume = cup.BaseVolume;
            /* var cfd = cf[0].Denominator;
@@ -95,6 +96,17 @@ namespace TestUnitOfMeasure
             var gram = cups["Gram"];
 
             Console.WriteLine(gram.EquivalentRatio.ToString());
+            Console.ReadLine();
+        }
+        static void _Cup_This_ConverToUnit_Indexer()
+        {
+            var cup = new Cup();
+
+            //var index = cup[cup["Cup"]]; //worked
+
+            var index = cup.Index;
+
+            Console.WriteLine(index.ToString());
             Console.ReadLine();
         }
     }

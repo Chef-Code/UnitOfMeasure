@@ -8,10 +8,6 @@ namespace UnitOfMeasure
 {
     public class FluidOunce : Unit
     {
-        private Fraction[] _CF = new Fraction[]
-        {
-            new Fraction(6,1), new Fraction(2,1), new Fraction(1,1), new Fraction(1,8), new Fraction(1,16), new Fraction(1,32), new Fraction(1,64), new Fraction(1,128)
-        };
         private ConvertToUnit[] _convertToUnits = new ConvertToUnit[]
         {
             new ConvertToUnit("FluidOunce",10000000000d, "CubicCentimeter",295735295625d),
@@ -39,16 +35,11 @@ namespace UnitOfMeasure
             this.BaseVolume = new Fraction(1,1);
             this.Index = 2;
         }
-        public override Fraction[] ConversionFactors  
+        public FluidOunce(double quantity)
         {
-            get { return _CF; }
-        }
-        public override Fraction this[int index]
-        {
-            get
-            {
-                return _CF[index];
-            }
+            this.BaseVolume = new Fraction(8, 1);
+            this.Index = 3;
+            this.Quantity = quantity;
         }
         public override ConvertToUnit[] ConvertToUnits
         {

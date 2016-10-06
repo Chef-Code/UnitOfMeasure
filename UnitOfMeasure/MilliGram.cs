@@ -8,15 +8,11 @@ namespace UnitOfMeasure
 {
     public class MilliGram : Unit //based off teaspoon, remove this comment once updated
     {
-        private Fraction[] _CF = new Fraction[]
-        {
-            new Fraction(1,1), new Fraction(1,2), new Fraction(1,6), new Fraction(1,48), new Fraction(1,96), new Fraction(1,192), new Fraction(1,384), new Fraction(1,778)
-        };
         private ConvertToUnit[] _convertToUnits = new ConvertToUnit[] 
         {
             new ConvertToUnit("MilliGram",1000d, "CubicCentimeter",1d),
             new ConvertToUnit("MilliGram",1000000000000000000000000d, "CubicFoot",35314666711511584d),
-            new ConvertToUnit("MilliGram",100000000000000000000, "CubicInch",6102374407749202d),
+            new ConvertToUnit("MilliGram",100000000000000000000d, "CubicInch",6102374407749202d),  //Unit Test this CTU
             new ConvertToUnit("MilliGram",1000000000d, "CubicMeter",1d),
             new ConvertToUnit("MilliGram",1000000000000000000000d, "Cup",4226752837730375d),
             new ConvertToUnit("MilliGram",1000000000000000000d, "FluidOunce",33814022701843d),
@@ -43,17 +39,7 @@ namespace UnitOfMeasure
         {
             this.BaseVolume = new Fraction(1, 6);
             this.Index = 0;
-        }
-        public override Fraction[] ConversionFactors
-        {
-            get { return _CF; }
-        }
-        public override Fraction this[int index]
-        {
-            get
-            {
-                return _CF[index];
-            }
+            this.Quantity = quantity;
         }
         public override ConvertToUnit[] ConvertToUnits
         {

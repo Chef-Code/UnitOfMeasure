@@ -8,10 +8,6 @@ namespace UnitOfMeasure
 {
     public class Pound : Unit        //TODO:  FIX THIS
     {
-        private Fraction[] _CF = new Fraction[]
-        {
-            new Fraction(16,1), new Fraction(1,1) 
-        };
         private ConvertToUnit[] _convertToUnits = new ConvertToUnit[] 
         {
             new ConvertToUnit("Pound",100000d, "CubicCentimeter",45359237d),
@@ -39,16 +35,11 @@ namespace UnitOfMeasure
             this.BaseVolume = new Fraction(16, 1);  // <------Implement BaseWeight  this will need to be where I start... BaseVolume will need to be "abstracted out" along with BaseWeight
             this.Index = 1;
         }
-        public override Fraction[] ConversionFactors
+        public Pound(double quantity)
         {
-            get { return _CF; }
-        }
-        public override Fraction this[int index]
-        {
-            get
-            {
-                return _CF[index];
-            }
+            this.BaseVolume = new Fraction(8, 1);
+            this.Index = 3;
+            this.Quantity = quantity;
         }
         public override ConvertToUnit[] ConvertToUnits
         {

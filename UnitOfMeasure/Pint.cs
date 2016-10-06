@@ -8,10 +8,6 @@ namespace UnitOfMeasure
 {
     public class Pint : Unit
     {
-        private Fraction[] _CF = new Fraction[]
-        {
-            new Fraction(96,1), new Fraction(32,1), new Fraction(16,1), new Fraction(2,1), new Fraction(1,1), new Fraction(1,2), new Fraction(1,4), new Fraction(1,8)
-        };
         private ConvertToUnit[] _convertToUnits = new ConvertToUnit[]
         {
             new ConvertToUnit("Pint",1000000d, "CubicCentimeter",473176473d),
@@ -39,16 +35,11 @@ namespace UnitOfMeasure
             this.BaseVolume = new Fraction(16,1);
             this.Index = 4;
         }
-        public override Fraction[] ConversionFactors  
+        public Pint(double quantity)
         {
-            get { return _CF; }
-        }
-        public override Fraction this[int index]
-        {
-            get
-            {
-                return _CF[index];
-            }
+            this.BaseVolume = new Fraction(8, 1);
+            this.Index = 3;
+            this.Quantity = quantity;
         }
         public override ConvertToUnit[] ConvertToUnits
         {

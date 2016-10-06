@@ -8,10 +8,6 @@ namespace UnitOfMeasure
 {
     public class HalfGallon : Unit
     {
-        private Fraction[] _CF = new Fraction[]
-        {
-            new Fraction(384,1), new Fraction(128,1), new Fraction(64,1), new Fraction(8,1), new Fraction(4,1), new Fraction(2,1), new Fraction(1,1), new Fraction(1,2)
-        };
         private ConvertToUnit[] _convertToUnits = new ConvertToUnit[] 
         {
             new ConvertToUnit("HalfGallon",1000000d, "CubicCentimeter",1892705892d),
@@ -39,16 +35,11 @@ namespace UnitOfMeasure
             this.BaseVolume = new Fraction(64,1);
             this.Index = 6;
         }
-        public override Fraction[] ConversionFactors  
+        public HalfGallon(double quantity)
         {
-            get { return _CF; }
-        }
-        public override Fraction this[int index]
-        {
-            get
-            {
-                return _CF[index];
-            }
+            this.BaseVolume = new Fraction(8, 1);
+            this.Index = 3;
+            this.Quantity = quantity;
         }
         public override ConvertToUnit[] ConvertToUnits
         {

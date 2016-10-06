@@ -8,11 +8,6 @@ namespace UnitOfMeasure
 {
     public class Cup : Unit
     {
-        private Fraction[] _CF = new Fraction[]
-        {
-            new Fraction(48,1), new Fraction(16,1), new Fraction(8,1), new Fraction(1,1), new Fraction(1,2), new Fraction(1,4), new Fraction(1,8), new Fraction(1,16)
-        };
-
         private ConvertToUnit[] _convertToUnits = new ConvertToUnit[]
         {
             new ConvertToUnit("Cup",10000000d, "CubicCentimeter",2365882365d),           
@@ -35,31 +30,24 @@ namespace UnitOfMeasure
             new ConvertToUnit("Cup",1d, "Tablespoon",16d),
             new ConvertToUnit("Cup",1d, "Teaspoon",48d)
         };
-
         public Cup()
         {
-            this.BaseVolume = new Fraction(8,1);
-            this.Index = 3;
+            this.BaseVolume = this["FluidOunce"].EquivalentRatio;
+            this.Index = this[this[Name]];
             this.Quantity = 1;
         }
 
-        public Cup(double quantity)  //add this same constructor to all Units
+        public Cup(double quantity)  
         {
-            this.BaseVolume = new Fraction(8, 1);
-            this.Index = 3;
+            this.BaseVolume = this["FluidOunce"].EquivalentRatio;
+            this.Index = this[this[Name]];
             this.Quantity = quantity;
         }
-
-        public override Fraction[] ConversionFactors  
+        public Cup(Unit baseVolume)
         {
-            get { return _CF; }
-        }
-        public override Fraction this[int index]
-        {
-            get
-            {
-                return _CF[index];
-            }
+            BaseVolume = this[baseVolume.Name].EquivalentRatio;
+            this.Index = this[this[Name]];
+            this.Quantity = baseVolume.Quantity;
         }
         public override ConvertToUnit[] ConvertToUnits
         {
@@ -73,6 +61,16 @@ namespace UnitOfMeasure
             get
             {
                 return _convertToUnits.SingleOrDefault(ctu => ctu.Become == become);
+            }
+        }
+        public int this[ConvertToUnit convertToUnit]
+        {
+            get
+            {
+               int[] ints = Enumerable.Range(0, ConvertToUnits.Length)
+                          .Where(index => ConvertToUnits[index].Become.Contains(convertToUnit.Become)).ToArray();
+                return ints[0];
+                          
             }
         }
     }

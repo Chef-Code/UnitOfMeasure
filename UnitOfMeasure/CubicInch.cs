@@ -8,10 +8,6 @@ namespace UnitOfMeasure
 {
     public class CubicInch : Unit //based off Teaspoon, Remove this comment once updated
     {
-        private Fraction[] _CF = new Fraction[]
-        {
-            new Fraction(1,1), new Fraction(1,2), new Fraction(1,6), new Fraction(1,48), new Fraction(1,96), new Fraction(1,192), new Fraction(1,384), new Fraction(1,778)
-        };
         private ConvertToUnit[] _convertToUnits = new ConvertToUnit[] 
         {
             new ConvertToUnit("CubicInch",100000000000000d, "CubicCentimeter",1638706400462963d),
@@ -43,17 +39,7 @@ namespace UnitOfMeasure
         {
             this.BaseVolume = new Fraction(1, 6);
             this.Index = 0;
-        }
-        public override Fraction[] ConversionFactors
-        {
-            get { return _CF; }
-        }
-        public override Fraction this[int index]
-        {
-            get
-            {
-                return _CF[index];
-            }
+            this.Quantity = quantity;
         }
         public override ConvertToUnit[] ConvertToUnits
         {

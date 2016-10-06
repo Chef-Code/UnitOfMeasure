@@ -8,10 +8,6 @@ namespace UnitOfMeasure
 {
     public class Quart : Unit
     {
-        private Fraction[] _CF = new Fraction[]
-        {
-            new Fraction(192,1), new Fraction(64,1), new Fraction(32,1), new Fraction(4,1), new Fraction(2,1), new Fraction(1,1), new Fraction(1,2), new Fraction(1,4)
-        };
         private ConvertToUnit[] _convertToUnits = new ConvertToUnit[] 
         {
             new ConvertToUnit("Quart",1000000d, "CubicCentimeter",946352946d),
@@ -39,16 +35,11 @@ namespace UnitOfMeasure
             this.BaseVolume = new Fraction(32,1);
             this.Index = 5;
         }
-        public override Fraction[] ConversionFactors  
+        public Quart(double quantity)
         {
-            get { return _CF; }
-        }
-        public override Fraction this[int index]
-        {
-            get
-            {
-                return _CF[index];
-            }
+            this.BaseVolume = new Fraction(8, 1);
+            this.Index = 3;
+            this.Quantity = quantity;
         }
         public override ConvertToUnit[] ConvertToUnits
         {
