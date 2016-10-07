@@ -30,17 +30,9 @@ namespace UnitOfMeasure
             new ConvertToUnit("HalfGallon",1d, "Tablespoon",128d),
             new ConvertToUnit("HalfGallon",1d, "Teaspoon",384d)
         };
-        public HalfGallon()
-        {
-            this.BaseVolume = new Fraction(64,1);
-            this.Index = 6;
-        }
-        public HalfGallon(double quantity)
-        {
-            this.BaseVolume = new Fraction(8, 1);
-            this.Index = 3;
-            this.Quantity = quantity;
-        }
+        public HalfGallon() { }
+        public HalfGallon(double quantity) : base(quantity) { }
+        public HalfGallon(Unit baseVolume) : base(baseVolume) { }
         public override ConvertToUnit[] ConvertToUnits
         {
             get

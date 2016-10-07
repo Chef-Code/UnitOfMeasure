@@ -30,17 +30,9 @@ namespace UnitOfMeasure
             new ConvertToUnit("KiloGram",1000000000000d, "Tablespoon",67628045403686d),
             new ConvertToUnit("KiloGram",100000000000000d, "Teaspoon",20288413621105796d)
         };
-        public KiloGram()
-        {
-            this.BaseVolume = new Fraction(1, 6);
-            this.Index = 0;
-        }
-        public KiloGram(double quantity)
-        {
-            this.BaseVolume = new Fraction(1, 6);
-            this.Index = 0;
-            this.Quantity = quantity;
-        }
+        public KiloGram() { }
+        public KiloGram(double quantity) : base(quantity) { }
+        public KiloGram(Unit baseVolume) : base(baseVolume) { }
         public override ConvertToUnit[] ConvertToUnits
         {
             get

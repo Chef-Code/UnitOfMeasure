@@ -30,17 +30,9 @@ namespace UnitOfMeasure
             new ConvertToUnit("Teaspoon",3d, "Tablespoon",1d),
             new ConvertToUnit("Teaspoon",1d, "Teaspoon",1d)
         };
-        public Teaspoon()
-        {
-            this.BaseVolume = new Fraction(1, 6);
-            this.Index = 0;
-        }
-        public Teaspoon(double quantity)  
-        {
-            this.BaseVolume = new Fraction(1, 6);
-            this.Index = 0;
-            this.Quantity = quantity;
-        }
+        public Teaspoon() { }
+        public Teaspoon(double quantity) : base(quantity) { }
+        public Teaspoon(Unit baseVolume) : base(baseVolume) { }
         public override ConvertToUnit[] ConvertToUnits
         {
             get

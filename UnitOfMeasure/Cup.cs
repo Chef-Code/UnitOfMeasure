@@ -30,25 +30,10 @@ namespace UnitOfMeasure
             new ConvertToUnit("Cup",1d, "Tablespoon",16d),
             new ConvertToUnit("Cup",1d, "Teaspoon",48d)
         };
-        public Cup()
-        {
-            this.BaseVolume = this["FluidOunce"].EquivalentRatio;
-            this.Index = this[this[Name]];
-            this.Quantity = 1;
-        }
+        public Cup() { }     
+        public Cup(double quantity) : base(quantity) { }
+        public Cup(Unit baseVolume) : base(baseVolume) { }
 
-        public Cup(double quantity)  
-        {
-            this.BaseVolume = this["FluidOunce"].EquivalentRatio;
-            this.Index = this[this[Name]];
-            this.Quantity = quantity;
-        }
-        public Cup(Unit baseVolume)
-        {
-            BaseVolume = this[baseVolume.Name].EquivalentRatio;
-            this.Index = this[this[Name]];
-            this.Quantity = baseVolume.Quantity;
-        }
         public override ConvertToUnit[] ConvertToUnits
         {
             get

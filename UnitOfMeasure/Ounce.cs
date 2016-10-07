@@ -30,17 +30,9 @@ namespace UnitOfMeasure
             new ConvertToUnit("Ounce",1000000000000000d, "Tablespoon",1917222837070346d),
             new ConvertToUnit("Ounce",1000000000000000d, "Teaspoon",5751668511211038d)
         };
-        public Ounce()
-        {
-            this.BaseVolume = new Fraction(1, 6);
-            this.Index = 0;
-        }
-        public Ounce(double quantity) 
-        {
-            this.BaseVolume = new Fraction(1, 6);
-            this.Index = 0;
-            this.Quantity = quantity;
-        }
+        public Ounce() { }
+        public Ounce(double quantity) : base(quantity) { }
+        public Ounce(Unit baseVolume) : base(baseVolume) { }
         public override ConvertToUnit[] ConvertToUnits
         {
             get

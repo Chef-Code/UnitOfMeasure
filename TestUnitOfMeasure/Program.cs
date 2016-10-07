@@ -22,7 +22,7 @@ namespace TestUnitOfMeasure
         }
         static void TestConvert()
         {
-            var cup = new Cup(1);
+            var cup = new Cup();
 
             var from = new UnitOfMeasure.UnitOfMeasure(cup);
             var to = new Teaspoon();
@@ -100,13 +100,13 @@ namespace TestUnitOfMeasure
         }
         static void _Cup_This_ConverToUnit_Indexer()
         {
-            var cup = new Cup();
+            var cup = new Cup(new FluidOunce());
 
-            //var index = cup[cup["Cup"]]; //worked
+            var index = cup[cup["Cup"]]; //worked
 
-            var index = cup.Index;
-
-            Console.WriteLine(index.ToString());
+            //var index = cup.Index;
+            var bv = cup.BaseVolume;
+            Console.WriteLine(index.ToString() + " " + bv.ToString());
             Console.ReadLine();
         }
     }

@@ -30,17 +30,9 @@ namespace UnitOfMeasure
             new ConvertToUnit("Gallon",1d, "Tablespoon",256d),
             new ConvertToUnit("Gallon",1d, "Teaspoon",768d)
         };
-        public Gallon()
-        {
-            this.BaseVolume = new Fraction(128,1);
-            this.Index = 7;
-        }
-        public Gallon(double quantity)
-        {
-            this.BaseVolume = new Fraction(8, 1);
-            this.Index = 3;
-            this.Quantity = quantity;
-        }
+        public Gallon() { }
+        public Gallon(double quantity) : base(quantity) { }
+        public Gallon(Unit baseVolume) : base(baseVolume) { }
         public override ConvertToUnit[] ConvertToUnits
         {
             get

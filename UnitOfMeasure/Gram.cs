@@ -30,17 +30,9 @@ namespace UnitOfMeasure
             new ConvertToUnit("Gram",1000000000000000d, "Tablespoon",67628045403686d),
             new ConvertToUnit("Gram",100000000000000000d, "Teaspoon",20288413621105796d)
         };
-        public Gram()
-        {
-            this.BaseVolume = new Fraction(1, 6);
-            this.Index = 0;
-        }
-        public Gram(double quantity) 
-        {
-            this.BaseVolume = new Fraction(1, 6);
-            this.Index = 0;
-            this.Quantity = quantity;
-        }
+        public Gram() { }
+        public Gram(double quantity) : base(quantity) { }
+        public Gram(Unit baseVolume) : base(baseVolume) { }
         public override ConvertToUnit[] ConvertToUnits
         {
             get

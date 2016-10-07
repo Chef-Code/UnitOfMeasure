@@ -30,17 +30,9 @@ namespace UnitOfMeasure
             new ConvertToUnit("Liter",1000000000000d, "Tablespoon",67628045403686d),
             new ConvertToUnit("Liter",100000000000000d, "Teaspoon",20288413621105796d)
         };
-        public Liter()
-        {
-            this.BaseVolume = new Fraction(1, 6);
-            this.Index = 0;
-        }
-        public Liter(double quantity)
-        {
-            this.BaseVolume = new Fraction(1, 6);
-            this.Index = 0;
-            this.Quantity = quantity;
-        }
+        public Liter() { }
+        public Liter(double quantity) : base(quantity) { }
+        public Liter(Unit baseVolume) : base(baseVolume) { }
         public override ConvertToUnit[] ConvertToUnits
         {
             get

@@ -8,7 +8,27 @@ namespace UnitOfMeasure
 {
     public abstract class Unit
     {
-        public Unit(){ }
+        protected Unit() 
+        {
+            this.BaseVolume = this["FluidOunce"].EquivalentRatio;
+            this.BaseWeight = this["Ounce"].EquivalentRatio;
+            this.Index = this[this[Name]];
+            this.Quantity = 1;
+        }
+        protected Unit(double quantity)
+        {
+            this.BaseVolume = this["FluidOunce"].EquivalentRatio;
+            this.BaseWeight = this["Ounce"].EquivalentRatio;
+            this.Index = this[this[Name]];
+            this.Quantity = quantity;
+        }
+        protected Unit(Unit baseVolume)
+        {
+            BaseVolume = this[baseVolume.Name].EquivalentRatio;
+            this.BaseWeight = this["Ounce"].EquivalentRatio;
+            this.Index = this[this[Name]];
+            this.Quantity = baseVolume.Quantity;
+        }
         public int UnitID { get; set; }
         public string Name
         {
@@ -16,7 +36,7 @@ namespace UnitOfMeasure
         }
         public int Index { get; set; }
         public double Quantity { get; set; }
-        public Fraction BaseVolume { get; set; }  //This is Equivalent to How many FluidOunces the Unit Contains
+        public Fraction BaseVolume { get; set; }
         public Fraction BaseWeight { get; set; }
         public abstract ConvertToUnit[] ConvertToUnits { get; }
         public abstract ConvertToUnit this[string become] { get; }

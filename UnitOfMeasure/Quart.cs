@@ -30,17 +30,9 @@ namespace UnitOfMeasure
             new ConvertToUnit("Quart",1d, "Tablespoon",64d),
             new ConvertToUnit("Quart",1d, "Teaspoon",192d)
         };
-        public Quart()
-        {
-            this.BaseVolume = new Fraction(32,1);
-            this.Index = 5;
-        }
-        public Quart(double quantity)
-        {
-            this.BaseVolume = new Fraction(8, 1);
-            this.Index = 3;
-            this.Quantity = quantity;
-        }
+        public Quart() { }
+        public Quart(double quantity) : base(quantity) { }
+        public Quart(Unit baseVolume) : base(baseVolume) { }
         public override ConvertToUnit[] ConvertToUnits
         {
             get

@@ -30,17 +30,9 @@ namespace UnitOfMeasure
             new ConvertToUnit("Pint",1d, "Tablespoon",32d),
             new ConvertToUnit("Pint",1d, "Teaspoon",96d)
         };
-        public Pint()
-        {
-            this.BaseVolume = new Fraction(16,1);
-            this.Index = 4;
-        }
-        public Pint(double quantity)
-        {
-            this.BaseVolume = new Fraction(8, 1);
-            this.Index = 3;
-            this.Quantity = quantity;
-        }
+        public Pint() { }
+        public Pint(double quantity) : base(quantity) { }
+        public Pint(Unit baseVolume) : base(baseVolume) { }
         public override ConvertToUnit[] ConvertToUnits
         {
             get

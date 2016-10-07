@@ -30,17 +30,9 @@ namespace UnitOfMeasure
             new ConvertToUnit("MilliLiter",1000000000000000d, "Tablespoon",67628045403686d),
             new ConvertToUnit("MilliLiter",100000000000000000d, "Teaspoon",20288413621105796d)
         };
-        public MilliLiter()
-        {
-            this.BaseVolume = new Fraction(1, 6);
-            this.Index = 0;
-        }
-        public MilliLiter(double quantity)
-        {
-            this.BaseVolume = new Fraction(1, 6);
-            this.Index = 0;
-            this.Quantity = quantity;
-        }
+        public MilliLiter() { }
+        public MilliLiter(double quantity) : base(quantity) { }
+        public MilliLiter(Unit baseVolume) : base(baseVolume) { }
         public override ConvertToUnit[] ConvertToUnits
         {
             get

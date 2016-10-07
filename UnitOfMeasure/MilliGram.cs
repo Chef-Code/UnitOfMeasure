@@ -30,17 +30,9 @@ namespace UnitOfMeasure
             new ConvertToUnit("MilliGram",1000000000000000000d, "Tablespoon",67628045403686d),
             new ConvertToUnit("MilliGram",100000000000000000000d, "Teaspoon",20288413621105796d)
         };
-        public MilliGram()
-        {
-            this.BaseVolume = new Fraction(1, 6);
-            this.Index = 0;
-        }
-        public MilliGram(double quantity) 
-        {
-            this.BaseVolume = new Fraction(1, 6);
-            this.Index = 0;
-            this.Quantity = quantity;
-        }
+        public MilliGram() { }
+        public MilliGram(double quantity) : base(quantity) { }
+        public MilliGram(Unit baseVolume) : base(baseVolume) { }
         public override ConvertToUnit[] ConvertToUnits
         {
             get

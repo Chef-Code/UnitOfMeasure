@@ -30,17 +30,9 @@ namespace UnitOfMeasure
             new ConvertToUnit("CubicMeter",1000000000d, "Tablespoon",67628045403686d),
             new ConvertToUnit("CubicMeter",100000000000d, "Teaspoon",20288413621105796d)
         };
-        public CubicMeter()
-        {
-            this.BaseVolume = new Fraction(1, 6);
-            this.Index = 0;
-        }
-        public CubicMeter(double quantity)
-        {
-            this.BaseVolume = new Fraction(1, 6);
-            this.Index = 0;
-            this.Quantity = quantity;
-        }
+        public CubicMeter() { }
+        public CubicMeter(double quantity) : base(quantity) { }
+        public CubicMeter(Unit baseVolume) : base(baseVolume) { }
         public override ConvertToUnit[] ConvertToUnits
         {
             get

@@ -30,17 +30,9 @@ namespace UnitOfMeasure
             new ConvertToUnit("Pound",1000000000000000d, "Tablespoon",30675565393125536d),
             new ConvertToUnit("Pound",100000000000000d, "Teaspoon",9202669617937660d)
         };
-        public Pound()
-        {
-            this.BaseVolume = new Fraction(16, 1);  // <------Implement BaseWeight  this will need to be where I start... BaseVolume will need to be "abstracted out" along with BaseWeight
-            this.Index = 1;
-        }
-        public Pound(double quantity)
-        {
-            this.BaseVolume = new Fraction(8, 1);
-            this.Index = 3;
-            this.Quantity = quantity;
-        }
+        public Pound() { }
+        public Pound(double quantity) : base(quantity) { }
+        public Pound(Unit baseVolume) : base(baseVolume) { }
         public override ConvertToUnit[] ConvertToUnits
         {
             get

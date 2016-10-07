@@ -30,17 +30,9 @@ namespace UnitOfMeasure
             new ConvertToUnit("CubicInch",1000000000000000d, "Tablespoon",1108225108538201d),
             new ConvertToUnit("CubicInch",10000000000000000d, "Teaspoon",33246753256146028d)
         };
-        public CubicInch()
-        {
-            this.BaseVolume = new Fraction(1, 6);
-            this.Index = 0;
-        }
-        public CubicInch(double quantity) 
-        {
-            this.BaseVolume = new Fraction(1, 6);
-            this.Index = 0;
-            this.Quantity = quantity;
-        }
+        public CubicInch() { }
+        public CubicInch(double quantity) : base(quantity) { }
+        public CubicInch(Unit baseVolume) : base(baseVolume) { }
         public override ConvertToUnit[] ConvertToUnits
         {
             get

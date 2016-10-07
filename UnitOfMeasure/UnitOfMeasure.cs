@@ -8,15 +8,25 @@ namespace UnitOfMeasure
 {
     public class UnitOfMeasure
     {
-        //schema:         "unit" + "_CF" = { Teaspoon, Tablespoon, FluidOunce, Cup, Pint, Quart, HalfGallon, Gallon };
-        private ConvertToUnit[] teaspoon_CF = new Teaspoon().ConvertToUnits;
-        private ConvertToUnit[] tablespoon_CF = new Tablespoon().ConvertToUnits;
-        private ConvertToUnit[] fluidOunce_CF = new FluidOunce().ConvertToUnits;  //TODO: ADD THE REST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        private ConvertToUnit[] cubicCentimeter_CF = new CubicCentimeter().ConvertToUnits;
+        private ConvertToUnit[] cubicFoot_CF = new CubicFoot().ConvertToUnits;
+        private ConvertToUnit[] cubicInch_CF = new CubicInch().ConvertToUnits;
+        private ConvertToUnit[] cubicMeter_CF = new CubicMeter().ConvertToUnits;
         private ConvertToUnit[] cup_CF = new Cup().ConvertToUnits;
-        private ConvertToUnit[] pint_CF = new Pint().ConvertToUnits;
-        private ConvertToUnit[] quart_CF = new Quart().ConvertToUnits;
-        private ConvertToUnit[] halfGallon_CF = new HalfGallon().ConvertToUnits;
+        private ConvertToUnit[] fluidOunce_CF = new FluidOunce().ConvertToUnits;
         private ConvertToUnit[] gallon_CF = new Gallon().ConvertToUnits;
+        private ConvertToUnit[] gram_CF = new Gram().ConvertToUnits;
+        private ConvertToUnit[] halfGallon_CF = new HalfGallon().ConvertToUnits;
+        private ConvertToUnit[] kiloGram_CF = new KiloGram().ConvertToUnits;
+        private ConvertToUnit[] liter_CF = new Liter().ConvertToUnits;
+        private ConvertToUnit[] milliGram_CF = new MilliGram().ConvertToUnits;
+        private ConvertToUnit[] milliLiter_CF = new MilliLiter().ConvertToUnits;
+        private ConvertToUnit[] ounce_CF = new Ounce().ConvertToUnits;
+        private ConvertToUnit[] pint_CF = new Pint().ConvertToUnits;
+        private ConvertToUnit[] pound_CF = new Pound().ConvertToUnits;
+        private ConvertToUnit[] quart_CF = new Quart().ConvertToUnits;
+        private ConvertToUnit[] tablespoon_CF = new Tablespoon().ConvertToUnits;
+        private ConvertToUnit[] teaspoon_CF = new Teaspoon().ConvertToUnits;
 
         private double _volume;
         private double _weight;
